@@ -14,19 +14,11 @@ const eqArrays = (array1, array2) => {
 };
 
 const assertArraysEqual = (array1, array2) => {
-  // Check for identical array length
-  if (array1.length !== array2.length) {
+  if (eqArrays(array1, array2)) {
+    console.log(`✅✅✅ Assertion Passed: [${array1}] === [${array2}]`);
+  } else {
     console.log(`🛑🛑🛑 Assertion Failed: [${array1}] !== [${array2}]`);
-    return;
   }
-  // Check for identical elements
-  for (let i = 0; i < array1.length; i++) {
-    if (array1[i] !== array2[i]) {
-      console.log(`🛑🛑🛑 Assertion Failed: [${array1}] !== [${array2}]`);
-      return;
-    }
-  }
-  console.log(`✅✅✅ Assertion Passed: [${array1}] === [${array2}]`);
 };
 
 
@@ -53,13 +45,6 @@ const middle = array => {
 
 
 // TEST CODE
-console.log(eqArrays([], middle([1]))); // should log TRUE
-console.log(eqArrays([1], middle([1, 2]))); // should log FALSE
-console.log(eqArrays([2], middle([1, 2, 3]))); // should log TRUE
-console.log(eqArrays([3, 4], middle([1, 2, 3, 4, 5]))); // should log FALSE
-console.log(eqArrays([2, 3], middle([1, 2, 3, 4]))); // should log TRUE
-console.log(eqArrays([4], middle([1, 2, 3, 4, 5, 6]))); // should log FALSE
-
 assertArraysEqual([], middle([1])); // should PASS
 assertArraysEqual([1], middle([1, 2])); // should FAIL
 assertArraysEqual([2], middle([1, 2, 3])); // should PASS
