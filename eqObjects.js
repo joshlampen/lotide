@@ -28,7 +28,9 @@ const eqObjects = function(object1, object2) {
   }
   // Check for identical key:value pairs
   for (const key of Object.keys(object1)) {
-    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) { // If we're dealing with arrays, run eqArrays
+    if (typeof object1[key] === "object" && !Array.isArray(object1[key]) && typeof object2[key] === "object" && !Array.isArray(object2[key])) {
+      return eqObjects(object1[key], object2[key]);
+    } else if (Array.isArray(object1[key]) && Array.isArray(object2[key])) { // If we're dealing with arrays, run eqArrays
       return eqArrays(object1[key], object2[key]);
     } else { // Otherwise, treat them as primitives
       if (object1[key] !== object2[key]) {
@@ -40,9 +42,7 @@ const eqObjects = function(object1, object2) {
 };
 
 // TEST CODE
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
+assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true); // => true
 
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false); // => false
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false); // => false
