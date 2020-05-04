@@ -33,6 +33,8 @@ const takeUntil = function(array, callback) {
   return output; // In case the callback condition is never satisfied
 };
 
+module.exports = takeUntil;
+
 // TEST CODE
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
 const results1 = takeUntil(data1, x => x < 0);

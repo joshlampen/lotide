@@ -21,6 +21,8 @@ const countLetters = string => {
   return output;
 };
 
+module.exports = countLetters;
+
 // TEST CODE
 assertEqual(countLetters("lighthouse in the house")["l"], 1);
 assertEqual(countLetters("lighthouse in the house")["i"], 2);
