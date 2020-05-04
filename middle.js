@@ -1,4 +1,3 @@
-// ACTUAL FUNCTION
 // Create helper function to find middle index/indices based on if the array has an even or odd number of elements
 const findMiddle = array => {
   if (array.length % 2 === 0) {

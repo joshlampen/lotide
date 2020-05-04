@@ -3,7 +3,7 @@ const eqArrays = (array1, array2) => {
   // Check for identical array length
   let equality = true;
   if (array1.length !== array2.length) {
-    equality = false;
+    return false;
   }
   // Check for identical elements
   for (let i = 0; i < array1.length; i++) {

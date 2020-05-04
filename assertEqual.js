@@ -1,4 +1,3 @@
-// FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
   if ((typeof actual === "number" && typeof expected === "number") || (typeof actual === "boolean" && typeof expected === "boolean")) {
     if (actual === expected) {

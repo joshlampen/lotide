@@ -1,4 +1,3 @@
-// FUNCTION IMPLEMENTATION
 const eqArrays = require('./eqArrays');
 
 const assertArraysEqual = (array1, array2) => {
