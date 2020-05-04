@@ -1,12 +1,14 @@
-const assertArraysEqual = require('../assertArraysEqual');
+const assert = require('chai').assert;
 const without = require('../without');
 
-// TEST CODE
-// Check that the without function works, using assertArraysEqual
-assertArraysEqual((without([1, 2, 3], [1])), [2, 3]); // => should PASS
-assertArraysEqual((without(["1", "2", "3"], [1, 2, "3"])), [1, 2]); // => should FAIL
-
-// Check that the without function returns a new array and does not modify the original array
-const words = ["hello", "world", "lighthouse"];
-without(words, ["lighthouse"]);
-assertArraysEqual(words, ["hello", "world", "lighthouse"]); // => should PASS
+describe("#without", () => {
+  it("should return ['1', '2'] for without(['1', '2', '3'], [1, 2, '3'])", () => {
+    assert.deepEqual(without(['1', '2', '3'], [1, 2, '3']), ['1', '2']);
+  });
+  
+  it("should return a new array without modifying the original array", () => {
+    const words = ["hello", "world", "lighthouse"];
+    without(words, ["lighthouse"]);
+    assert.deepEqual(words, ["hello", "world", "lighthouse"]);
+  });
+});

@@ -1,6 +1,8 @@
-const assertArraysEqual = require('../assertArraysEqual');
+const assert = require('chai').assert;
 const flatten = require('../flatten');
 
-// TEST CODE
-assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]); // => should PASS
-assertArraysEqual(flatten([1, 2, ["3", 4], 5, [6]]), [1, 2, 3, 4, 5, 6]); // => should FAIL
+describe("#flatten", () => {
+  it("should return the correct flattened array, with values being either numbers or strings", () => {
+    assert.deepEqual(flatten([1, 2, ["3", 4], 5, [6]]), [1, 2, "3", 4, 5, 6]);
+  });
+});

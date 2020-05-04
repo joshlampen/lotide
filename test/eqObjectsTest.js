@@ -1,10 +1,12 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const eqObjects = require('../eqObjects');
 
-// TEST CODE
-assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true); // => true
+describe("#eqObjects", () => {
+  it("should return true for equal objects", () => {
+    assert.strictEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+  });
 
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false); // => false
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false); // => false
-
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { y: 0, z: 1 }, b: 3 }), false); // => false
+  it("should return false for equal objects", () => {
+    assert.strictEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { y: 0, z: 1 }, b: 3 }), false);
+  });
+});
