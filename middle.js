@@ -1,27 +1,3 @@
-// TEST/ASSERTION FUNCTIONS
-const eqArrays = (array1, array2) => {
-  // Check for identical array length
-  if (array1.length !== array2.length) {
-    return false;
-  }
-  // Check for identical elements
-  for (let i = 0; i < array1.length; i++) {
-    if (array1[i] !== array2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const assertArraysEqual = (array1, array2) => {
-  if (eqArrays(array1, array2)) {
-    console.log(`✅✅✅ Assertion Passed: [${array1}] === [${array2}]`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: [${array1}] !== [${array2}]`);
-  }
-};
-
-
 // ACTUAL FUNCTION
 // Create helper function to find middle index/indices based on if the array has an even or odd number of elements
 const findMiddle = array => {
@@ -43,11 +19,4 @@ const middle = array => {
   return output;
 };
 
-
-// TEST CODE
-assertArraysEqual([], middle([1])); // should PASS
-assertArraysEqual([1], middle([1, 2])); // should FAIL
-assertArraysEqual([2], middle([1, 2, 3])); // should PASS
-assertArraysEqual([3, 4], middle([1, 2, 3, 4, 5])); // should FAIL
-assertArraysEqual([2, 3], middle([1, 2, 3, 4])); // should PASS
-assertArraysEqual([4], middle([1, 2, 3, 4, 5, 6])); // should FAIL
+module.exports = middle;
